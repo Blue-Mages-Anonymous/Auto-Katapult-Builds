@@ -23,7 +23,7 @@ jobs:
     - name: Check for new Katapult version
       id: check_version
       run: |
-        git clone https://github.com/Arksine/katapult.git
+        git clone https://github.com/Arksine/katapult.git temp_katapult
         cd temp_katapult
         LATEST_TAG=$(git describe --tags --always)
         cd ..
@@ -55,7 +55,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gcc-arm-none-eabi binutils-arm-none-eabi binutils g++ python3-pip tree file
-        pip3 install -U platformio
+        
     
     - name: Build firmware
       id: build
